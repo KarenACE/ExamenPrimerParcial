@@ -9,10 +9,14 @@ public class Player : MonoBehaviour
      [SerializeField]
      float jumpForce = 7.0f;
       Rigidbody2D rb2D;
+      SpriteRenderer spr;
+       Animator anim;
 
       void Start()
       {
            rb2D = GetComponent<Rigidbody2D>();
+           spr = GetComponent<SpriteRenderer>();
+           anim = GetComponent<Animator>();
       }
 
 
@@ -24,9 +28,12 @@ public class Player : MonoBehaviour
                { 
                    rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); 
                }
+               spr.flipX = FlipSprite;
+               anim.SetFloat("AxisX", Mathf.Abs(Axis.x));
                }
 
 Vector2 Axis => new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
 Vector2 AxisRaw => new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 bool JumpButton => Input.GetButtonDown("Jump");
+bool FlipSprite => Axis.x > 0 ? false : Axis.x < 0 ? true: spr.flipX;
 }
