@@ -42,3 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: floor
+    uniqueID: 1318716311
+    locked: 0
+  - name: items
+    uniqueID: 834704241
+    locked: 0
+  - name: props
+    uniqueID: 1957908973
+    locked: 0
+  - name: egg
+    uniqueID: 4151648529
+    locked: 0
+  - name: player
+    uniqueID: 2498708161
+    locked: 0
